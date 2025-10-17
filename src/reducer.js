@@ -1,5 +1,3 @@
-import { userAgent } from "next/server";
-
 export const initialState = {
     basket: [],
     user: null,
