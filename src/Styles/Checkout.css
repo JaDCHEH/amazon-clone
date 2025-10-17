@@ -1,18 +1,213 @@
-.checkout{
-    display: flex;
-    padding: 20px;
-    background-color: white;
-    height: max-content;
+.checkout {
+  display: flex;
+  background-color: #eaeded;
+  min-height: 100vh;
+  padding: 14px;
+  gap: 18px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.checkout__left {
+  flex: 1;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: 0 2px 5px 0 rgba(213, 217, 217, 0.5);
+}
+
+.checkout__right {
+  width: 300px;
+  height: fit-content;
+  position: sticky;
+  top: 74px;
 }
 
 .checkout__ad {
-    width: 100%;
-    margin-bottom: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.checkout__greeting {
+  color: #0f1111;
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 8px;
 }
 
 .checkout__title {
-    margin-right: 10px;
-    padding: 10px;
-    border-bottom: 1px solid lightgray;
+  color: #0f1111;
+  font-size: 28px;
+  font-weight: 400;
+  margin: 20px 0 16px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+  line-height: 36px;
 }
 
+/* Empty Cart Styles */
+.checkout__empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.checkout__empty h3 {
+  font-size: 24px;
+  color: #0f1111;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.checkout__empty p {
+  font-size: 14px;
+  color: #565959;
+  margin-bottom: 24px;
+}
+
+.checkout__shopButton {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border: 1px solid #a88734 #9c7e31 #846a29;
+  border-radius: 3px;
+  padding: 10px 30px;
+  font-size: 14px;
+  color: #0f1111;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 400;
+  transition: all 0.1s ease;
+}
+
+.checkout__shopButton:hover {
+  background: linear-gradient(to bottom, #f5d78e, #edb829);
+  color: #0f1111;
+  text-decoration: none;
+}
+
+/* Payment Section Integration */
+.checkout__paymentSection {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 2px solid #ddd;
+}
+
+.checkout__paymentForm {
+  margin-top: 20px;
+}
+
+.payment__section {
+  margin-bottom: 24px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.payment__section h3 {
+  color: #0f1111;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 24px;
+}
+
+.payment__input-group {
+  margin-bottom: 16px;
+}
+
+.payment__input-group label {
+  display: block;
+  margin-bottom: 4px;
+  color: #0f1111;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.payment__input-group input {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid #a6a6a6;
+  border-radius: 3px;
+  font-size: 13px;
+  line-height: 19px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(15, 17, 17, 0.15) inset;
+}
+
+.payment__input-group input:focus {
+  outline: none;
+  border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+}
+
+.payment__help-text {
+  font-size: 11px;
+  color: #565959;
+  margin-top: 4px;
+  line-height: 14px;
+}
+
+.payment__row {
+  display: flex;
+  gap: 14px;
+}
+
+.payment__row .payment__input-group {
+  flex: 1;
+}
+
+.checkout__placeOrderButton {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border: 1px solid #a88734 #9c7e31 #846a29;
+  border-radius: 3px;
+  padding: 10px 30px;
+  font-size: 15px;
+  line-height: 19px;
+  color: #0f1111;
+  cursor: pointer;
+  width: 100%;
+  font-family: "Amazon Ember", Arial, sans-serif;
+  font-weight: 600;
+  transition: all 0.1s ease;
+  margin-top: 20px;
+}
+
+.checkout__placeOrderButton:hover {
+  background: linear-gradient(to bottom, #f5d78e, #edb829);
+  border-color: #a88734 #9c7e31 #846a29;
+}
+
+.checkout__placeOrderButton:active {
+  background: #e9a834;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .checkout {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .checkout__right {
+    width: 100%;
+    order: -1;
+    position: relative;
+    top: 0;
+  }
+
+  .checkout__left {
+    padding: 14px;
+  }
+
+  .checkout__title {
+    font-size: 24px;
+  }
+
+  .payment__row {
+    flex-direction: column;
+    gap: 0;
+  }
+}

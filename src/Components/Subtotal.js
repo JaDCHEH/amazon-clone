@@ -3,7 +3,7 @@ import { NumericFormat } from "react-number-format";
 import "../Styles/Subtotal.css";
 import { useStateValue } from "../StateProvider";
 
-function Subtotal() {
+function Subtotal({ onProceedToPayment, showPayment }) {
   const [{ basket }] = useStateValue();
 
   const getBasketTotal = (basket) => {
@@ -13,14 +13,20 @@ function Subtotal() {
     });
     return total;
   };
+
+  const handleCheckout = () => {
+    if (onProceedToPayment) {
+      onProceedToPayment();
+    }
+  };
+
   return (
     <div className="subtotal">
       <NumericFormat
         renderText={(value) => (
           <>
             <p>
-              Subtotal ({basket?.length} items):{" "}
-              <strong>{getBasketTotal(basket)}$</strong>
+              Subtotal ({basket?.length} items): <strong>{value}</strong>
             </p>
             <small className="subtotal__gift">
               <input type="checkbox" /> This order contains a gift
@@ -28,12 +34,18 @@ function Subtotal() {
           </>
         )}
         decimalScale={2}
-        value={getBasketTotal(basket)} // Part of the homework
+        value={getBasketTotal(basket)}
         displayType={"text"}
         thousandSeparator={true}
         prefix={"$"}
       />
-      <button>Proceed to Checkout</button>
+      <button
+        onClick={handleCheckout}
+        disabled={basket.length === 0 || showPayment}
+        className={showPayment ? "disabled" : ""}
+      >
+        {showPayment ? "Payment Form Below" : "Proceed to Payment"}
+      </button>
     </div>
   );
 }
