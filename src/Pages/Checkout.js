@@ -6,7 +6,7 @@ import CheckoutProduct from "../Components/CheckoutProduct";
 import { Link } from "react-router-dom";
 
 function Checkout() {
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{ basket, user }] = useStateValue();
   const [showPayment, setShowPayment] = useState(false);
   const [cardInfo, setCardInfo] = useState({
     cardNumber: "",
