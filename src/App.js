@@ -12,6 +12,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useStateValue } from "./StateProvider";
 
 function App() {
+  // eslint-disable-next-line no-empty-pattern
   const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
