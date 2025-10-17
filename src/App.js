@@ -12,40 +12,43 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useStateValue } from "./StateProvider";
 
 function App() {
-
-  const [{ basket, user }, dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // User is signed in
-        console.log('User is signed in:', user);
+        console.log("User is signed in:", user);
         dispatch({
-          type: 'SET_USER',
-          user: user
+          type: "SET_USER",
+          user: user,
         });
       } else {
         // User is signed out
         dispatch({
-          type: 'SET_USER',
-          user: null
+          type: "SET_USER",
+          user: null,
         });
-        console.log('User is signed out');
+        console.log("User is signed out");
       }
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <Router>
       <div className="app">
-        
         <Routes>
           <Route path="/login" element={[<Login />]} />
-          <Route path="/payment" element={[<Header />, <Payment />, <Footer />]} />
-          <Route path="/checkout" element={[<Header />, <Checkout />, <Footer />]} />
+          <Route
+            path="/payment"
+            element={[<Header />, <Payment />, <Footer />]}
+          />
+          <Route
+            path="/checkout"
+            element={[<Header />, <Checkout />, <Footer />]}
+          />
           <Route path="/" element={[<Header />, <Home />, <Footer />]} />
         </Routes>
-
       </div>
     </Router>
   );

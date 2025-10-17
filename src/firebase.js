@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -11,12 +10,13 @@ import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyCi7xyJKnx6lHO54DflXe-_CwRtWUmwaes",
   authDomain: "e-clone-ea21a.firebaseapp.com",
-  databaseURL: "https://e-clone-ea21a-default-rtdb.europe-west1.firebasedatabase.app",
+  databaseURL:
+    "https://e-clone-ea21a-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "e-clone-ea21a",
   storageBucket: "e-clone-ea21a.firebasestorage.app",
   messagingSenderId: "278006934721",
   appId: "1:278006934721:web:185f517aa03fdb5150f840",
-  measurementId: "G-52X18T1R4Y"
+  measurementId: "G-52X18T1R4Y",
 };
 
 // Initialize Firebase
