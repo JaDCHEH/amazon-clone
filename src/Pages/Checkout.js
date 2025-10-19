@@ -83,7 +83,7 @@ function Checkout() {
       return;
     }
 
-    const payload = await stripe
+    await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
           card: elements.getElement(CardElement),
@@ -94,16 +94,14 @@ function Checkout() {
         setError(null);
         setProcessing(false);
 
-        navigate("/orders");
-
+        console.log("Payment successful:", paymentIntent);
+        // navigate("/orders");
       })
       .catch((error) => {
         setError(`Payment failed: ${error.message}`);
         setProcessing(false);
       });
   };
-
-  console.log(payload)
 
   return (
     <div className="checkout">
