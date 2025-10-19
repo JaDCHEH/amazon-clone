@@ -95,7 +95,7 @@ function Checkout() {
         setProcessing(false);
 
         console.log("Payment successful:", paymentIntent);
-        // navigate("/orders");
+        navigate("/orders");
       })
       .catch((error) => {
         setError(`Payment failed: ${error.message}`);
