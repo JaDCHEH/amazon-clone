@@ -83,8 +83,6 @@ function Checkout() {
       return;
     }
 
-    const cardElement = elements.getElement(CardElement);
-
     const payload = await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
@@ -104,6 +102,8 @@ function Checkout() {
         setProcessing(false);
       });
   };
+
+  console.log(payload)
 
   return (
     <div className="checkout">
