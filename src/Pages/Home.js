@@ -60,6 +60,46 @@ function Home() {
                     rating={5}
                 />
             </div>
+            <div className="home__row">
+                <Product 
+                    id="1234"
+                    title="Apple 2025 MacBook Air 13-inch Laptop with M4 chip: Built for Apple Intelligence, 13.6-inch Liquid Retina Display, 16GB Unified Memory, 256GB SSD Storage, 12MP Center Stage Camera, Touch ID; Midnight"
+                    image="https://m.media-amazon.com/images/I/71cWZUr9SVL._AC_SL1500_.jpg"
+                    price={899.99}
+                    rating={4}
+                />
+                <Product
+                    id="12346"
+                    title="Apple iPhone 17 Pro Max Silicone Case with MagSafe and Camera Control: Lightweight Phone Case, Wireless Charging Compatible, Smooth Matte Finish; Terra Cotta"
+                    image="https://m.media-amazon.com/images/I/61k4cslkgRL._AC_SX342_.jpg"
+                    price={37.99}
+                    rating={5}
+                />
+                <Product
+                    id="1234655"
+                    title="2025 Gaming Laptop with AMD Ryzen7 5000 Series(Up to 4.3GHZ,8C/16T),AMD Radeon Graphics,16GB DDR4x2 512GB SSD"
+                    image="https://m.media-amazon.com/images/I/410j5klAqWL._AC_UL800_FMwebp_QL65_.jpg"
+                    price={1699.99}
+                    rating={4}
+                />
+            </div>
+            <div className="home__row">
+                <Product
+                    id="1234567"
+                    title="TCyberPowerPC Gamer Xtreme VR Gaming PC, "
+                    image="https://m.media-amazon.com/images/I/71ENeVg0MuL._AC_UL960_FMwebp_QL65_.jpg"
+                    price={989.99}
+                    rating={5}
+                />
+
+                <Product
+                    id="1234588"
+                    title="Xbox Wireless Gaming Controller (2025) – Carbon Black – Play on Xbox"
+                    image="https://m.media-amazon.com/images/I/615KnbjRmTL._AC_UL800_FMwebp_QL65_.jpg"
+                    price={49.99}
+                    rating={4}
+                />
+            </div>
         </div>
     </div>
   )

@@ -10,6 +10,12 @@ import Login from "./Pages/Login";
 import { auth } from "./firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { useStateValue } from "./StateProvider";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const stripePromise = loadStripe(
+  "pk_test_51SJxB3D0vS1AmzRh8SVTKhQKdznh0aVDDSmWWtPpEFQytZJaE8q9TnM6slh0P5LyeOP6KHwEJ5tDbtJxFvx1lzeM00NZaWHBM5"
+);
 
 function App() {
   // eslint-disable-next-line no-empty-pattern
@@ -46,7 +52,7 @@ function App() {
           />
           <Route
             path="/checkout"
-            element={[<Header />, <Checkout />, <Footer />]}
+            element={[<Header />, <Elements stripe={stripePromise}><Checkout /></Elements>, <Footer />]}
           />
           <Route path="/" element={[<Header />, <Home />, <Footer />]} />
         </Routes>

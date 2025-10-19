@@ -142,6 +142,36 @@
   box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
 }
 
+/* Stripe CardElement Styling */
+.payment__cardElement {
+  width: 100%;
+  padding: 11px 10px;
+  border: 1px solid #a6a6a6;
+  border-radius: 3px;
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(15, 17, 17, 0.15) inset;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.payment__cardElement:hover {
+  border-color: #888;
+}
+
+.payment__cardElement:focus-within {
+  outline: none;
+  border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
+}
+
+.payment__error {
+  color: #c40000;
+  font-size: 12px;
+  margin-top: 6px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
 .payment__help-text {
   font-size: 11px;
   color: #565959;
@@ -182,6 +212,14 @@
 .checkout__placeOrderButton:active {
   background: #e9a834;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+}
+
+.checkout__placeOrderButton:disabled {
+  background: linear-gradient(to bottom, #f7f7f7, #e7e7e7);
+  border-color: #adb1b8 #a2a6ac #8d9096;
+  color: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 /* Responsive Design */
