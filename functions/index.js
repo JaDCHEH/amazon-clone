@@ -8,20 +8,20 @@
  */
 
 const functions = require("firebase-functions");
-const {onRequest} = require("firebase-functions/https");
 const logger = require("firebase-functions/logger");
 const express = require("express");
 const cors = require("cors");
-const { FirebaseFunctionsTest } = require("firebase-functions-test/lib/lifecycle");
-const stripe = require("stripe")("sk_test_51SJxB3D0vS1AmzRh5hwswLeYUlsmhCEzqoAZ06YjMdmimfd0Sh0QQoyhB2gpkueOZpviUZ3L7E5nl8CrqpqFqkqh001OwLbIYa");
+const stripeSecretKey =
+  "sk_test_51SJxB3D0vS1AmzRh5hwswLeYUlsmhCEzqoAZ06YjMdmimfd" +
+  "0Sh0QQoyhB2gpkueOZpviUZ3L7E5nl8CrqpqFqkqh001OwLbIYa";
+const stripe = require("stripe")(stripeSecretKey);
 
 const app = express();
 
 // Automatically allow cross-origin requests
-app.use(cors({ origin: true }));
+app.use(cors({origin: true}));
 
 app.use(express.json());
-
 
 app.post("/payments/create", async (req, res) => {
   const total = req.query.total;
@@ -41,10 +41,8 @@ app.post("/payments/create", async (req, res) => {
     });
   } catch (error) {
     logger.error("Error creating PaymentIntent:", error);
-    res.status(500).send({ error: error.message });
+    res.status(500).send({error: error.message});
   }
 });
 
 exports.api = functions.https.onRequest(app);
-
-
